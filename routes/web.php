@@ -57,6 +57,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
         // reports
         Route::get('/reports', [ReportsController::class, 'index']);
-
+        Route::put('/reports/update/{id}', [ReportsController::class, 'update'])
+            ->name('reports.update');
     });
 });

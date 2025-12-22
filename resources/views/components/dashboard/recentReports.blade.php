@@ -13,7 +13,7 @@
                 Recent Reports
             </h4>
 
-            <button data-slot="button"
+            <a href="/admin/reports"
                 class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium border h-8 rounded-md gap-1.5 px-3 hover:bg-[#F3F4F7] transition-colors cursor-pointer">
                 View All
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -22,7 +22,7 @@
                     <path d="M5 12h14" />
                     <path d="m12 5 7 7-7 7" />
                 </svg>
-            </button>
+            </a>
         </div>
     </div>
 
@@ -41,7 +41,24 @@
                     data-status="{{ $item->status }}"
                     class="flex items-start gap-3 p-3 rounded-lg border bg-white hover:bg-[#F3F4F7] transition-colors cursor-pointer">
 
-                    <div class="w-2 h-2 rounded-full mt-2 bg-orange-500"></div>
+                    @switch($item->status)
+                        @case('menunggu')
+                            <div class="w-2 h-2 rounded-full mt-2 bg-orange-500"></div>
+                        @break
+
+                        @case('diproses')
+                            <div class="w-2 h-2 rounded-full mt-2 bg-blue-500"></div>
+                        @break
+
+                        @case('selesai')
+                            
+                            <div class="w-2 h-2 rounded-full mt-2 bg-green-500"></div>
+                        @break
+
+                        @default
+                        <div class="w-2 h-2 rounded-full mt-2 bg-gray-500"></div>
+                    @endswitch
+                  
 
                     <div class="flex-1 min-w-0">
                         <div class="flex items-center gap-2">

@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\KategoriModel;
 use App\Models\LaporanModel;
+use Barryvdh\DomPDF\Facade\Pdf;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class ReportsController extends Controller
@@ -45,5 +47,19 @@ class ReportsController extends Controller
         ]);
 
         return redirect()->back();
+    }
+
+    public function exportPdf()
+    {
+
+        $reports = LaporanModel::all();
+
+        // return view('admin.pdf.invoice', [
+        //     'reports' => $reports,
+        // ]);
+        $pdf = Pdf::loadView('admin.pdf.invoice', [
+            'reports' => $reports]);
+
+        return $pdf->download('export-reports-'.Carbon::now()->timestamp.'.pdf');
     }
 }

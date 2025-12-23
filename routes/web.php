@@ -59,5 +59,6 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('/reports', [ReportsController::class, 'index']);
         Route::put('/reports/update/{id}', [ReportsController::class, 'update'])
             ->name('reports.update');
+            Route::get('/reports/export', [ReportsController::class, 'exportPdf'])->name('reports.export');
     });
 });

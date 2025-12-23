@@ -101,7 +101,7 @@
                 </button>
 
 
-                <button
+                <a href="{{ route('admin.reports.export') }}"
                     class="flex py-2 items-center gap-2 rounded-md border border-gray-300 bg-white px-4 text-sm text-gray-700 transition hover:bg-gray-100">
                     <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                         stroke="currentColor" stroke-width="2">
@@ -110,7 +110,7 @@
                         <path d="m7 10 5 5 5-5"></path>
                     </svg>
                     Export
-                </button>
+                </a>
             </div>
         </div>
         <div class="px-6 pb-6">

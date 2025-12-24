@@ -53,11 +53,22 @@
                 <div class="relative">
                     <select name="status" onchange="this.form.submit()"
                         class="appearance-none w-full rounded-md border border-gray-300 bg-gray-100 px-3 py-2 pr-8 text-sm text-gray-700 focus:outline-none">
+
                         <option value="">All Statuses</option>
-                        <option value="menunggu">Menunggu</option>
-                        <option value="diproses">Diproses</option>
-                        <option value="selesai">Selesai</option>
+
+                        <option value="menunggu" {{ request('status') == 'menunggu' ? 'selected' : '' }}>
+                            Menunggu
+                        </option>
+
+                        <option value="diproses" {{ request('status') == 'diproses' ? 'selected' : '' }}>
+                            Diproses
+                        </option>
+
+                        <option value="selesai" {{ request('status') == 'selesai' ? 'selected' : '' }}>
+                            Selesai
+                        </option>
                     </select>
+
 
                     <svg class="pointer-events-none absolute right-2 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-500"
                         xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"

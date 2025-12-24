@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ReportsController;
+use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Auth\LoginAdminController;
 use App\Http\Controllers\Auth\LoginUserController;
 use App\Http\Controllers\Auth\RegisterUserController;
@@ -59,6 +60,9 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('/reports', [ReportsController::class, 'index']);
         Route::put('/reports/update/{id}', [ReportsController::class, 'update'])
             ->name('reports.update');
-            Route::get('/reports/export', [ReportsController::class, 'exportPdf'])->name('reports.export');
+        Route::get('/reports/export', [ReportsController::class, 'exportPdf'])->name('reports.export');
+
+        // user
+        Route::get('/user', [UserController::class, 'index']);
     });
 });

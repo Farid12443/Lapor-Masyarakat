@@ -71,22 +71,29 @@
                     <thead class="bg-gray-100">
                         <tr>
                             <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                Nama</th>
+                                Nama
+                            </th>
                             <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                Email</th>
+                                Email
+                            </th>
                             <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                Alamat</th>
+                                Alamat
+                            </th>
                             <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                No HP</th>
-                            <th
-                                class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                Aksi</th>
+                                No HP
+                            </th>
                         </tr>
                     </thead>
 
                     <tbody class="divide-y divide-gray-200">
                         @forelse ($user as $item)
-                            <tr class="hover:bg-blue-50 transition-colors duration-200">
+                            <tr onclick="openModalShowUser(this)" data-id="{{ $item->id }}"
+                                data-nama="{{ $item->nama }}" data-email="{{ $item->email }}"
+                                data-foto="{{ $item->foto_profil }}" data-no_hp="{{ $item->no_hp }}"
+                                data-alamat="{{ $item->alamat }}" data-riwayat-laporan='@json($item->laporans)'
+                                data-registrasi="{{ $item->created_at->translatedFormat('M d, h:i A') }}" title="lihat detail"
+                                class="hover:bg-blue-50 transition-colors duration-200">
+
                                 <td class="px-6 py-4 whitespace-nowrap">
                                     <p class="font-semibold text-gray-900">
                                         {{ Str::title($item->nama) }}
@@ -120,34 +127,6 @@
                                                 d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z" />
                                         </svg>
                                         <span>{{ $item->no_hp }}</span>
-                                    </div>
-                                </td>
-
-                                <td class="px-6 py-4 whitespace-nowrap text-center">
-                                    <div class="flex items-center justify-center gap-8">
-                                        <button onclick="openModalShowUser(this)" data-id="{{ $item->id }}"
-                                            data-nama="{{ $item->nama }}" data-email="{{ $item->email }}"
-                                            data-foto="{{ $item->foto_profil }}" data-no_hp="{{ $item->no_hp }}"
-                                            data-alamat="{{ $item->alamat }}" data-riwayat-laporan='@json($item->laporans)'
-                                            data-registrasi="{{ $item->created_at->translatedFormat('M d, h:i A') }}"
-                                            class="flex h-8 w-8 items-center justify-center rounded-full bg-gray-100 hover:bg-blue-100 hover:text-blue-600 transition-all duration-200"
-                                            title="Lihat Detail">
-                                            <svg class="h-4 w-4 text-gray-600" xmlns="http://www.w3.org/2000/svg"
-                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                                <path
-                                                    d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0" />
-                                                <circle cx="12" cy="12" r="3" />
-                                            </svg>
-                                        </button>
-                                        <button
-                                            class="flex h-8 w-8 items-center justify-center rounded-full bg-gray-100 hover:bg-green-100 hover:text-green-600 transition-all duration-200"
-                                            title="Edit">
-                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                                stroke-width="1.5" stroke="currentColor" class="h-4 w-4 text-gray-600">
-                                                <path stroke-linecap="round" stroke-linejoin="round"
-                                                    d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" />
-                                            </svg>
-                                        </button>
                                     </div>
                                 </td>
                             </tr>

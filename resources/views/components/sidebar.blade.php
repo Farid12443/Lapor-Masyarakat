@@ -46,29 +46,16 @@
         </a>
         <a href="/admin/user" class="flex items-center gap-3 block px-4 py-2 rounded-lg text-black hover:bg-[#E9EBEF] 
              {{ request()->is('admin/user*') ? 'bg-[#E9EBEF]' : '' }}">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-6"
-            aria-hidden="true">
-            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
-            <path d="M16 3.128a4 4 0 0 1 0 7.744"></path>
-            <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
-            <circle cx="9" cy="7" r="4"></circle>
-        </svg>
-        <span>
-            Pengguna
-        </span>
-        </a>
-        <a href="#" class="flex gap-3 items-center block px-4 py-2 rounded-lg text-black hover:bg-[#E9EBEF]">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-6"
                 aria-hidden="true">
-                <path d="M3 3v16a2 2 0 0 0 2 2h16"></path>
-                <path d="M18 17V9"></path>
-                <path d="M13 17V5"></path>
-                <path d="M8 17v-3"></path>
+                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                <path d="M16 3.128a4 4 0 0 1 0 7.744"></path>
+                <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                <circle cx="9" cy="7" r="4"></circle>
             </svg>
             <span>
-                Analisis
+                Pengguna
             </span>
         </a>
     </nav>
